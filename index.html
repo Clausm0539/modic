@@ -21,14 +21,15 @@
     .nav-links a.modic-nav{color:#e87777;}
     .nav-links a.modic-nav:hover{color:#ff9999;}
 
-    /* LANG TOGGLE */
+    /* LANG TOGGLE - SVG flags for Android compatibility */
     .lang-toggle{display:flex;align-items:center;gap:8px;margin-left:16px;}
-    .lang-btn{background:none;border:none;cursor:pointer;padding:2px;border-radius:3px;opacity:.5;transition:opacity .2s;font-size:1.3rem;line-height:1;}
+    .lang-btn{background:none;border:none;cursor:pointer;padding:2px 4px;border-radius:3px;opacity:.5;transition:opacity .2s;line-height:1;display:flex;align-items:center;}
     .lang-btn.active{opacity:1;outline:2px solid var(--gold);outline-offset:2px;}
     .lang-btn:hover{opacity:.85;}
+    .flag-svg{width:24px;height:16px;border-radius:2px;display:block;}
 
     /* HERO */
-    #hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;background:var(--navy);position:relative;overflow:hidden;}
+    #hero{min-height:100vh;display:grid;grid-template-columns:1.2fr 0.8fr;padding-top:64px;background:var(--navy);position:relative;overflow:hidden;}
     #hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(184,151,58,.07) 0%,transparent 70%);}
     .hero-text{display:flex;flex-direction:column;justify-content:center;padding:72px 52px 72px 72px;position:relative;z-index:2;}
     .hero-eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:500;}
@@ -189,6 +190,22 @@
     .footer-links a{font-size:.73rem;color:rgba(255,255,255,.24);text-decoration:none;letter-spacing:.06em;transition:color .2s;}
     .footer-links a:hover{color:var(--gold-light);}
 
+    /* MODIC BOOKS GRID */
+    .modic-books{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px;}
+    .modic-book-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:20px 16px;text-align:center;transition:border-color .2s;}
+    .modic-book-card:hover{border-color:rgba(200,80,80,.4);}
+    .modic-book-lang{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#e87777;margin-bottom:8px;}
+    .modic-book-title{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:#fff;line-height:1.4;margin-bottom:10px;}
+    .modic-book-link{font-size:.75rem;color:var(--gold-light);text-decoration:none;letter-spacing:.06em;border-bottom:1px solid rgba(212,176,90,.3);padding-bottom:1px;}
+    .modic-book-link:hover{border-bottom-color:var(--gold-light);}
+    /* ASSESSMENT BOOK */
+    .assessment-block{display:grid;grid-template-columns:120px 1fr;gap:28px;align-items:start;background:var(--cream);border:1px solid var(--border);border-left:4px solid var(--gold);padding:24px;margin-bottom:8px;}
+    .assessment-block img{width:120px;border-radius:2px;box-shadow:0 4px 16px rgba(0,0,0,.15);}
+    .assessment-block h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);line-height:1.35;margin-bottom:6px;}
+    .assessment-block .pub-meta{font-size:.82rem;color:var(--muted);line-height:1.6;}
+    /* SPINE WATERMARK */
+    .spine-watermark{position:absolute;right:-20px;bottom:-20px;width:180px;opacity:.06;pointer-events:none;}
+    @media(max-width:900px){.modic-books{grid-template-columns:repeat(2,1fr);}.assessment-block{grid-template-columns:1fr;}}
     /* ANIMATIONS */
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
     .hero-text>*{animation:fadeUp .65s ease both;}
@@ -218,7 +235,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Claus <span>Manniche</span></div>
+  <a href="#hero" style="text-decoration:none;"><div class="nav-logo">Claus <span>Manniche</span></div></a>
   <ul class="nav-links">
     <li><a href="#about" data-dk="Om mig" data-en="About">Om mig</a></li>
     <li><a href="#modic-section" class="modic-nav" data-dk="Modic" data-en="Modic">Modic</a></li>
@@ -228,8 +245,12 @@
     <li><a href="#links" data-dk="Profiler" data-en="Profiles">Profiler</a></li>
     <li>
       <div class="lang-toggle">
-        <button class="lang-btn active" id="btn-dk" onclick="setLang('da')" title="Dansk">🇩🇰</button>
-        <button class="lang-btn" id="btn-en" onclick="setLang('en')" title="English">🇬🇧</button>
+        <button class="lang-btn active" id="btn-dk" onclick="setLang('da')" title="Dansk">
+          <svg class="flag-svg" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#C60C30"/><rect x="7" width="3" height="16" fill="white"/><rect y="6" width="24" height="4" fill="white"/><rect x="7" width="3" height="16" fill="#C60C30"/><rect y="6" width="24" height="4" fill="#C60C30"/><rect x="8" width="1" height="16" fill="white"/><rect y="7" width="24" height="2" fill="white"/></svg>
+        </button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')" title="English">
+          <svg class="flag-svg" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#012169"/><path d="M0,0 L24,16 M24,0 L0,16" stroke="white" stroke-width="3"/><path d="M0,0 L24,16 M24,0 L0,16" stroke="#C8102E" stroke-width="1.5"/><path d="M12,0 V16 M0,8 H24" stroke="white" stroke-width="4"/><path d="M12,0 V16 M0,8 H24" stroke="#C8102E" stroke-width="2.5"/></svg>
+        </button>
       </div>
     </li>
   </ul>
@@ -241,10 +262,10 @@
     <p class="hero-eyebrow" data-dk="Læge · Dr.Med. · Cand.Jur. · Speciallæge i Reumatologi" data-en="MD · Dr.Med. · LLB · Specialist in Rheumatology">Læge · Dr.Med. · Cand.Jur. · Speciallæge i Reumatologi</p>
     <h1 class="hero-name">Claus<br>Manniche</h1>
     <p class="hero-title" data-dk="Rygforsker & Gæsteprofessor · Syddansk Universitet" data-en="Spine Researcher & Visiting Professor · University of Southern Denmark">Rygforsker &amp; Gæsteprofessor · Syddansk Universitet</p>
-    <p class="hero-desc" data-dk="Over fire årtiers international forskning inden for rygsmerter, Modic-forandringer og aktiv rehabilitering. Forfatter til 268+ videnskabelige arbejder og h-indeks 52 — ophavsmand til banebrydende paradigmeskift i behandlingen af kroniske lændesmerter." data-en="Over four decades of international research in back pain, Modic changes and active rehabilitation. Author of 268+ scientific works, h-index 52 — pioneer behind paradigm shifts in the treatment of chronic low back pain.">Over fire årtiers international forskning inden for rygsmerter, Modic-forandringer og aktiv rehabilitering. Forfatter til 268+ videnskabelige arbejder og h-indeks 52 — ophavsmand til banebrydende paradigmeskift i behandlingen af kroniske lændesmerter.</p>
+    <p class="hero-desc" data-dk="Over fire årtiers international forskning inden for rygsmerter, Modic-forandringer og aktiv rehabilitering. Forfatter til 268+ videnskabelige arbejder og h-indeks 52 — ophavsmand til banebrydende paradigmeskift i behandlingen af kroniske lændesmerter." data-en="Over four decades of international research in back pain, Modic changes and active rehabilitation. Author of 268+ scientific works, h-index 58 — pioneer behind paradigm shifts in the treatment of chronic low back pain.">Over fire årtiers international forskning inden for rygsmerter, Modic-forandringer og aktiv rehabilitering. Forfatter til 268+ videnskabelige arbejder og h-indeks 58 — ophavsmand til banebrydende paradigmeskift i behandlingen af kroniske lændesmerter.</p>
     <div class="hero-stats">
       <div class="stat"><span class="stat-num">268+</span><span class="stat-label" data-dk="Publikationer" data-en="Publications">Publikationer</span></div>
-      <div class="stat"><span class="stat-num">52</span><span class="stat-label">h-indeks</span></div>
+      <div class="stat"><span class="stat-num">58</span><span class="stat-label">h-indeks</span></div>
       <div class="stat"><span class="stat-num">240+</span><span class="stat-label" data-dk="Fagfællebedømte" data-en="Peer-reviewed">Fagfællebedømte</span></div>
       <div class="stat"><span class="stat-num">7</span><span class="stat-label" data-dk="Monografier" data-en="Monographs">Monografier</span></div>
     </div>
@@ -277,7 +298,7 @@
       <div class="about-body">
         <p data-dk="Claus Manniche er født den 21. juni 1956 i Kalundborg og er dansk reumatolog, læge, dr.med. og cand.jur. Han studerede medicin ved Københavns Universitet (kandidateksamen 1982, autorisation 1985) og opnåede sin juridiske kandidatgrad i 1988, speciallægetitlen i reumatologi i 1994 og doktorgraden (Dr.Med.) i 1995." data-en="Claus Manniche was born on 21 June 1956 in Kalundborg and is a Danish rheumatologist, MD, Dr.Med. and LLB. He studied medicine at the University of Copenhagen (degree 1982, licence 1985), obtained his law degree in 1988, his specialist qualification in rheumatology in 1994, and his doctorate (Dr.Med.) in 1995.">Claus Manniche er født den 21. juni 1956 i Kalundborg og er dansk reumatolog, læge, dr.med. og cand.jur. Han studerede medicin ved Københavns Universitet (kandidateksamen 1982, autorisation 1985) og opnåede sin juridiske kandidatgrad i 1988, speciallægetitlen i reumatologi i 1994 og doktorgraden (Dr.Med.) i 1995.</p>
         <p data-dk="Fra 1998 til 2018 var han ledende overlæge og professor ved Rygcenter Syddanmark, Sygehus Lillebælt / Syddansk Universitet. I dag er han gæsteprofessor og seniorforsker ved Arbejds- og Miljømedicinsk Afdeling, Odense Universitetshospital / SDU, samt speciallæge i reumatologi i privat praksis i Odense." data-en="From 1998 to 2018, he served as Chief Consultant and Professor at the Spine Centre of Southern Denmark, Hospital of Lillebaelt / University of Southern Denmark. Today he is a Visiting Professor and Senior Researcher at the Department of Occupational and Environmental Medicine, Odense University Hospital / SDU, and a private specialist in rheumatology in Odense.">Fra 1998 til 2018 var han ledende overlæge og professor ved Rygcenter Syddanmark, Sygehus Lillebælt / Syddansk Universitet. I dag er han gæsteprofessor og seniorforsker ved Arbejds- og Miljømedicinsk Afdeling, Odense Universitetshospital / SDU, samt speciallæge i reumatologi i privat praksis i Odense.</p>
-        <p data-dk="Hans internationale gennembrud kom med The Lancet-studiet i 1988 — et af de allerførste randomiserede forsøg der dokumenterede, at intensiv muskeltræning er overlegent frem for sengelejet ved kroniske lændesmerter. Studiet satte standarden for aktiv rygrehabilitering globalt. Han har desuden udviklet Low Back Pain Rating Scale (LBPRS) og ledet den internationale forskning i Modic-forandringer." data-en="His international breakthrough came with The Lancet study in 1988 — one of the first randomised trials documenting that intensive muscle training is superior to bed rest for chronic low back pain. This set the global standard for active spinal rehabilitation. He also developed the Low Back Pain Rating Scale (LBPRS) and has led international research into Modic changes.">Hans internationale gennembrud kom med The Lancet-studiet i 1988 — et af de allerførste randomiserede forsøg der dokumenterede, at intensiv muskeltræning er overlegent frem for sengelejet ved kroniske lændesmerter. Studiet satte standarden for aktiv rygrehabilitering globalt. Han har desuden udviklet Low Back Pain Rating Scale (LBPRS) og ledet den internationale forskning i Modic-forandringer.</p>
+        <p data-dk="Hans internationale gennembrud kom med The Lancet-studiet i 1988 — et af de allerførste randomiserede forsøg der dokumenterede, at intensiv muskeltræning er overlegent frem for sengelejet ved kroniske lændesmerter. Studiet satte standarden for aktiv rygrehabilitering globalt. Han har desuden udviklet Low Back Pain Rating Scale (LBPRS) og været synlig og aktiv i den internationale forskning i Modic-forandringer." data-en="His international breakthrough came with The Lancet study in 1988 — one of the first randomised trials documenting that intensive muscle training is superior to bed rest for chronic low back pain. This set the global standard for active spinal rehabilitation. He also developed the Low Back Pain Rating Scale (LBPRS) and has been a prominent and active contributor to international research into Modic changes.">Hans internationale gennembrud kom med The Lancet-studiet i 1988 — et af de allerførste randomiserede forsøg der dokumenterede, at intensiv muskeltræning er overlegent frem for sengelejet ved kroniske lændesmerter. Studiet satte standarden for aktiv rygrehabilitering globalt. Han har desuden udviklet Low Back Pain Rating Scale (LBPRS) og været synlig og aktiv i den internationale forskning i Modic-forandringer.</p>
         <p data-dk="Sideløbende med forskningen har han redigeret det danske standardværk Reumatologi (FADL's Forlag) i fire udgaver fra 1994–2018. I 2013 medstiftede han Persica Pharmaceuticals Ltd., som udvikler intradiskal antibiotisk behandling til Modic-relaterede lændesmerter." data-en="Alongside research he has edited the Danish standard reference Reumatologi (FADL's Forlag) in four editions 1994–2018. In 2013 he co-founded Persica Pharmaceuticals Ltd., developing intradiscal antibiotic treatment for Modic-related back pain.">Sideløbende med forskningen har han redigeret det danske standardværk Reumatologi (FADL's Forlag) i fire udgaver fra 1994–2018. I 2013 medstiftede han Persica Pharmaceuticals Ltd., som udvikler intradiskal antibiotisk behandling til Modic-relaterede lændesmerter.</p>
       </div>
       <div class="about-sidebar">
@@ -300,6 +321,10 @@
             <li>ORCID: 0000-0001-5938-1483</li>
             <li>Scopus ID: 26643604900 · Aut.ID: 00F4J</li>
           </ul>
+        </div>
+        <div class="info-card" style="text-align:center;padding:20px;background:linear-gradient(135deg,#1a2744,#2d3e5f);">
+          <img src="spine.jpg" alt="Rygsøjle-illustration — Erik Muff Reinert" style="width:80px;opacity:.75;border-radius:2px;"/>
+          <p style="font-size:.72rem;color:rgba(255,255,255,.4);margin-top:10px;font-style:italic;line-height:1.5;">Illustration: Erik Muff Reinert<br>Symbol på dansk rygforskning</p>
         </div>
         <div class="info-card">
           <h3 data-dk="Faglige interesser" data-en="Research interests">Faglige interesser</h3>
@@ -362,7 +387,8 @@
 
 <!-- MODIC SPOTLIGHT -->
 <section id="modic-section">
-  <div class="section-inner">
+  <div class="section-inner" style="position:relative;">
+    <img src="spine.jpg" alt="" class="spine-watermark" style="position:absolute;right:0;bottom:0;width:200px;opacity:.07;pointer-events:none;border-radius:4px;">
     <p class="section-tag" data-dk="Særligt fokus" data-en="Special focus">Særligt fokus</p>
     <h2 class="section-title" data-dk="Modic-forandringer — forskning & nyheder" data-en="Modic Changes — Research & News">Modic-forandringer — forskning &amp; nyheder</h2>
     <p class="modic-intro" data-dk="Modic-forandringer er MRI-synlige forandringer i hvirvelendepladerne, der forekommer hos ca. 40% af patienter med kroniske lændesmerter. Claus Manniche har i over 20 år ledet den internationale forskning der har afdækket disse forandringers årsager, kliniske betydning og behandlingsmuligheder — herunder langtids-antibiotikabehandling og intradiskal injektion." data-en="Modic changes are MRI-visible changes in vertebral endplates, occurring in approximately 40% of patients with chronic low back pain. For over 20 years, Claus Manniche has led international research uncovering the causes, clinical significance and treatment options — including long-term antibiotic therapy and intradiscal injection.">Modic-forandringer er MRI-synlige forandringer i hvirvelendepladerne, der forekommer hos ca. 40% af patienter med kroniske lændesmerter. Claus Manniche har i over 20 år ledet den internationale forskning der har afdækket disse forandringers årsager, kliniske betydning og behandlingsmuligheder — herunder langtids-antibiotikabehandling og intradiskal injektion.</p>
@@ -406,7 +432,7 @@
       <div class="news-card">
         <div class="news-date">2019</div>
         <div class="news-title" data-dk="Nye indsigter: diskinfektioner og degeneration" data-en="New insights: disc infections and degeneration">Nye indsigter: diskinfektioner og degeneration</div>
-        <div class="news-body" data-dk="Manniche & O'Neill (Future Sci OA, 2019) præsenterer nye data der kobler lavvirulente diskinfektioner til alvorlig diskdegeneration — yderligere støtte til den infektiøse model." data-en="Manniche & O'Neill (Future Sci OA, 2019) present new data linking low-virulence disc infections to severe disc degeneration — further support for the infectious model.">Manniche &amp; O'Neill (Future Sci OA, 2019) præsenterer nye data der kobler lavvirulente diskinfektioner til alvorlig diskdegeneration — yderligere støtte til den infektiøse model.</div>
+        <div class="news-body" data-dk="Manniche & O'Neill (Future Sci OA, 2019) opsummerer nye data der kobler lavvirulente diskinfektioner til alvorlig diskdegeneration — yderligere støtte til den infektiøse model." data-en="Manniche & O'Neill (Future Sci OA, 2019) summarise new data linking low-virulence disc infections to severe disc degeneration — further support for the infectious model.">Manniche &amp; O'Neill (Future Sci OA, 2019) opsummerer nye data der kobler lavvirulente diskinfektioner til alvorlig diskdegeneration — yderligere støtte til den infektiøse model.</div>
       </div>
       <div class="news-card">
         <div class="news-date">2016</div>
@@ -430,12 +456,12 @@
       <div class="research-card">
         <div class="rc-num">01</div>
         <h3 data-dk="Modic-forandringer" data-en="Modic changes">Modic-forandringer</h3>
-        <p data-dk="20+ år som ledende international forsker i Modic-forandringer, diskusinfektioner og antibiotikabehandlingens effekt. Landmark-RCT 2013 i European Spine Journal." data-en="20+ years as a leading international researcher in Modic changes, disc infections and antibiotic treatment. Landmark RCT 2013 in European Spine Journal.">20+ år som ledende international forsker i Modic-forandringer, diskusinfektioner og antibiotikabehandlingens effekt. Landmark-RCT 2013 i European Spine Journal.</p>
+        <p data-dk="20+ år som synlig og aktiv international forsker i Modic-forandringer, diskusinfektioner og antibiotikabehandlingens effekt. Landmark-RCT 2013 i European Spine Journal." data-en="20+ years as a prominent and active international researcher in Modic changes, disc infections and antibiotic treatment. Landmark RCT 2013 in European Spine Journal.">20+ år som synlig og aktiv international forsker i Modic-forandringer, diskusinfektioner og antibiotikabehandlingens effekt. Landmark-RCT 2013 i European Spine Journal.</p>
       </div>
       <div class="research-card">
         <div class="rc-num">02</div>
         <h3 data-dk="Aktiv Rygrehabilitering" data-en="Active Spinal Rehabilitation">Aktiv Rygrehabilitering</h3>
-        <p data-dk="The Lancet-studiet (1988) var et af de første RCT'er der beviste intensiv muskeltrænigs overlegenhed over sengelejet — et globalt paradigmeskift for aktiv rehabilitering." data-en="The Lancet study (1988) was one of the first RCTs proving intensive muscle training superior to bed rest — a global paradigm shift for active rehabilitation.">The Lancet-studiet (1988) var et af de første RCT'er der beviste intensiv muskeltrænigs overlegenhed over sengelejet — et globalt paradigmeskift for aktiv rehabilitering.</p>
+        <p data-dk="The Lancet-studiet (1988) var et af de første RCT'er der beviste intensiv muskeltrænigs overlegenhed over sengelejet — et globalt paradigmeskift. Dr.Med.-afhandlingen Assessment and exercise in low Back Pain (1995) er svendeprøven inden for dette felt." data-en="The Lancet study (1988) was one of the first RCTs proving intensive muscle training superior to bed rest — a global paradigm shift. The doctoral thesis Assessment and exercise in low Back Pain (1995) is the landmark work in this field.">The Lancet-studiet (1988) var et af de første RCT'er der beviste intensiv muskeltrænigs overlegenhed over sengelejet — et globalt paradigmeskift. Dr.Med.-afhandlingen <em>Assessment and exercise in low Back Pain</em> (1995) er svendeprøven inden for dette felt.</p>
       </div>
       <div class="research-card">
         <div class="rc-num">03</div>
@@ -476,17 +502,62 @@
     </div>
 
     <div class="pub-panel active" id="tab-books">
+      <!-- Assessment and exercise - with cover -->
+      <div class="assessment-block">
+        <img src="assessment.jpg" alt="Assessment and exercise in low Back Pain"/>
+        <div>
+          <h4>Assessment and exercise in low Back Pain<br><em style="font-weight:300;font-size:.95rem;">With special reference to the Management of Pain and Disability Following First-time Lumbar Disc Surgery</em></h4>
+          <p class="pub-meta">Claus Manniche · Lægeforeningens Forlag, København 1995 · <span class="tag tag-red">Dr.Med.-afhandling</span><br>
+          Svendeprøven inden for aktiv rehabilitering. Tilgængelig via ResearchGate.<br>
+          <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" style="color:var(--gold);font-size:.8rem;">Download fra ResearchGate →</a></p>
+        </div>
+      </div>
+
+      <!-- 4 Modic books -->
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--navy);margin:32px 0 16px;font-weight:600;" data-dk="Back Pain and Modic — gratis e-bog på fire sprog" data-en="Back Pain and Modic — free e-book in four languages">Back Pain and Modic — gratis e-bog på fire sprog</p>
+      <div class="modic-books">
+        <div class="modic-book-card">
+          <div class="modic-book-lang">🇬🇧 English</div>
+          <div class="modic-book-title">Back Pain and Modic: On the threshold of the most significant development in the diagnosis and treatment of back pain in decades</div>
+          <a href="https://www.researchgate.net/publication/304626769_Back_Pain_and_Modic" target="_blank" class="modic-book-link">Download (ResearchGate)</a>
+        </div>
+        <div class="modic-book-card">
+          <div class="modic-book-lang">🇩🇰 Dansk</div>
+          <div class="modic-book-title">Rygsmerter og Modic: På tærsklen til det vigtigste gennembrud i diagnostik og behandling af rygsmerter i årtier</div>
+          <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" class="modic-book-link">Download (ResearchGate)</a>
+        </div>
+        <div class="modic-book-card">
+          <div class="modic-book-lang">🇫🇷 Français</div>
+          <div class="modic-book-title">Dorsalgie et discophatie de type Modic: Au seuil du développement le plus significatif dans le diagnostic et le traitement de la dorsalgie</div>
+          <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" class="modic-book-link">Download (ResearchGate)</a>
+        </div>
+        <div class="modic-book-card">
+          <div class="modic-book-lang">🇩🇪 Deutsch</div>
+          <div class="modic-book-title">Rückenschmerzen und Modic: An der Schwelle zur bedeutendsten Entwicklung in Diagnose und Behandlung von Rückenschmerzen</div>
+          <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" class="modic-book-link">Download (ResearchGate)</a>
+        </div>
+      </div>
+
       <div class="pub-list">
-        <div class="pub-item"><div class="pub-year">2016</div><div class="pub-content"><h4>Back Pain and Modic</h4><p class="pub-meta">Manniche C, Jordan A, Mikkelsen C · København (eget forlag), 106 s. <span class="tag tag-gold">Gratis download</span><br>Tilgængelig på dansk, fransk og tysk via ResearchGate.</p></div></div>
         <div class="pub-item"><div class="pub-year">1999</div><div class="pub-content"><h4>Ondt i ryggen: Forekomst, behandling og forebyggelse i et MTV-perspektiv</h4><p class="pub-meta">Manniche C (red.) et al. · MTV Serie B, nr. 1 · Sundhedsstyrelsen / DICE</p></div></div>
-        <div class="pub-item"><div class="pub-year">1996</div><div class="pub-content"><h4>Rygsmerter. Myter og Kendsgerninger</h4><p class="pub-meta">Manniche C, Jordan A · Gyldendal, København</p></div></div>
+        <div class="pub-item"><div class="pub-year">1996</div><div class="pub-content"><h4>Rygsmerter. Myter og Kendsgerninger</h4><p class="pub-meta">Manniche C, Jordan A · Gyldendal, København · <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" style="color:var(--gold);font-size:.8rem;">Download fra ResearchGate →</a></p></div></div>
         <div class="pub-item"><div class="pub-year">1994–2018</div><div class="pub-content"><h4>Reumatologi <em>(standardlærebog)</em></h4><p class="pub-meta">Manniche C (red.) · FADL's Forlag · 4 udgaver</p></div></div>
         <div class="pub-item"><div class="pub-year">Løbende</div><div class="pub-content"><h4>Rygafsnit i <em>Medicinsk Kompendium</em> og <em>Praktisk Medicin</em></h4><p class="pub-meta">Manniche C (kapitelforfatter) · FADL's Forlag</p></div></div>
       </div>
-      <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" class="view-all-link" data-dk="Download gratis e-bøger på ResearchGate →" data-en="Download free e-books on ResearchGate →">Download gratis e-bøger på ResearchGate →</a>
+      <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" class="view-all-link" data-dk="Se alle bøger og downloads på ResearchGate →" data-en="View all books and downloads on ResearchGate →">Se alle bøger og downloads på ResearchGate →</a>
     </div>
 
     <div class="pub-panel" id="tab-landmark">
+      <!-- Assessment book featured -->
+      <div class="assessment-block">
+        <img src="assessment.jpg" alt="Assessment and exercise in low Back Pain"/>
+        <div>
+          <h4>Assessment and exercise in low Back Pain <em style="font-weight:300;font-size:.95rem;">— With special reference to the Management of Pain and Disability Following First-time Lumbar Disc Surgery</em></h4>
+          <p class="pub-meta">Claus Manniche · Lægeforeningens Forlag, København 1995 · <span class="tag tag-red">Dr.Med.-afhandling · Svendeprøven</span><br>
+          Sætter standarden for aktiv rehabilitering efter discusoperation. Tilgængelig fra ResearchGate.<br>
+          <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" style="color:var(--gold);font-size:.8rem;">Download fra ResearchGate →</a></p>
+        </div>
+      </div>
       <div class="pub-list">
         <div class="pub-item"><div class="pub-year">1988</div><div class="pub-content"><h4>Clinical trial of intensive muscle training for chronic low back pain</h4><p class="pub-meta">Manniche C et al. · <em>Lancet</em> 1988;2:1473–6 <span class="tag tag-red">Landmark</span></p></div></div>
         <div class="pub-item"><div class="pub-year">1994</div><div class="pub-content"><h4>Low Back Pain Rating Scale: validation of a tool for assessment of low back pain</h4><p class="pub-meta">Manniche C, Asmussen K, Lauritsen B, Vinterberg H, Kreiner S, Jordan A · <em>Pain</em> 1994;57:317–26 <span class="tag tag-red">Landmark</span></p></div></div>
@@ -499,6 +570,7 @@
 
     <div class="pub-panel" id="tab-modic">
       <div class="pub-list">
+        <div class="pub-item"><div class="pub-year">2008</div><div class="pub-content"><h4>Modic changes, possible causes and relation to low back pain</h4><p class="pub-meta">Albert HB, Kjaer P, Jensen TS, Sorensen JS, Bendix T, Manniche C · <em>Medical Hypotheses</em> 2008;70(2):361–368 <span class="tag tag-red">Landmark hypotese</span><br><a href="https://doi.org/10.1016/j.mehy.2007.05.014" target="_blank" style="color:var(--gold);font-size:.79rem;">doi:10.1016/j.mehy.2007.05.014 →</a></p></div></div>
         <div class="pub-item"><div class="pub-year">2007</div><div class="pub-content"><h4>Modic changes following lumbar disc herniation</h4><p class="pub-meta">Albert HB, Manniche C · <em>Eur Spine J</em> 2007;16:977–82 <span class="tag tag-gold">Open Access</span></p></div></div>
         <div class="pub-item"><div class="pub-year">2008</div><div class="pub-content"><h4>Antibiotic treatment in patients with low back pain associated with Modic changes type 1: a pilot study</h4><p class="pub-meta">Albert HB, Manniche C, Sorensen JS, Deleuran BW · <em>Br J Sports Med</em> 2008;42:969–73</p></div></div>
         <div class="pub-item"><div class="pub-year">2013</div><div class="pub-content"><h4>Antibiotic treatment in patients with chronic low back pain and Modic type 1 changes: a double-blind RCT</h4><p class="pub-meta">Albert HB, Sorensen JS, Christensen BS, Manniche C · <em>Eur Spine J</em> 2013;22:697–707 <span class="tag tag-gold">Open Access</span> <span class="tag tag-red">Landmark</span></p></div></div>
@@ -576,7 +648,7 @@
       <a href="https://scholar.google.dk/citations?user=d0KAmX0AAAAJ" target="_blank" class="link-card">
         <div class="link-card-icon"><svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg></div>
         <h3>Google Scholar</h3>
-        <p data-dk="Citationsstatistik og h-indeks 52." data-en="Citation statistics and h-index 52.">Citationsstatistik og h-indeks 52.</p>
+        <p data-dk="Citationsstatistik og h-indeks 58." data-en="Citation statistics and h-index 58.">Citationsstatistik og h-indeks 58.</p>
       </a>
       <a href="https://portal.findresearcher.sdu.dk/en/persons/cmanniche" target="_blank" class="link-card">
         <div class="link-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>

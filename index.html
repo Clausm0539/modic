@@ -272,14 +272,11 @@
     </div>
     <p class="ctas-label" data-dk="Forskning & publikationer" data-en="Research & publications">Forskning &amp; publikationer</p>
     <div class="hero-ctas">
-      <a href="#publications" class="btn-primary" data-dk="Publikationer" data-en="Publications">Publikationer</a>
-      <a href="#research" class="btn-ghost" data-dk="Forskning" data-en="Research">Forskning</a>
-      <a href="#links" class="btn-ghost" data-dk="Akademiske profiler" data-en="Academic profiles">Akademiske profiler</a>
     </div>
     <p class="ctas-label" data-dk="Modic-forskning" data-en="Modic research">Modic-forskning</p>
     <div class="hero-ctas-modic">
       <a href="#modic-section" class="btn-modic"><span>🔬</span><span data-dk="Modic-fokus" data-en="Modic focus">Modic-fokus</span></a>
-      <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" class="btn-modic-ghost" data-dk="Download Modic e-bog" data-en="Download Modic e-book">Download Modic e-bog</a>
+      <a href="#tab-books" onclick="document.getElementById('publications').scrollIntoView();showTab('books',document.querySelector('.pub-tab'));" class="btn-modic" data-dk="Gratis Modic e-bog" data-en="Free Modic e-book">Gratis Modic e-bog</a>
     </div>
   </div>
   <div class="hero-portrait">
@@ -323,9 +320,9 @@
             <li>Scopus ID: 26643604900 · Aut.ID: 00F4J</li>
           </ul>
         </div>
-        <div class="info-card" style="padding:0;overflow:hidden;background:var(--navy);border-top:3px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;">
-          <img src="spine_upright.jpg" alt="Illustration: Erik Muff Reinert" style="width:80px;border-radius:2px;margin:20px 0 8px;display:block;"/>
-          <p style="font-size:.7rem;color:rgba(255,255,255,.4);margin-bottom:16px;font-style:italic;text-align:center;line-height:1.5;">Illustration: Erik Muff Reinert</p>
+        <div class="info-card" style="padding:0;overflow:hidden;background:#297f8a;border-top:3px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;">
+          <img src="spine_final.jpg" alt="Illustration: Erik Muff Reinert" style="width:90px;border-radius:2px;margin:20px 0 8px;display:block;"/>
+          <p style="font-size:.7rem;color:rgba(255,255,255,.6);margin-bottom:16px;font-style:italic;text-align:center;line-height:1.5;">Illustration: Erik Muff Reinert</p>
         </div>
         <div class="info-card">
           <h3 data-dk="Faglige interesser" data-en="Research interests">Faglige interesser</h3>
@@ -442,8 +439,8 @@
       </div>
     </div>
     <div class="modic-ctas">
-      <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" class="btn-modic-full" data-dk="Download Modic e-bog (gratis)" data-en="Download Modic e-book (free)">Download Modic e-bog (gratis)</a>
-      <a href="#publications" class="btn-modic-outline" data-dk="Alle Modic-publikationer" data-en="All Modic publications">Alle Modic-publikationer</a>
+      <a href="#publications" onclick="setTimeout(()=>showTab('books',document.querySelector('.pub-tab')),100);" class="btn-modic-full" data-dk="Download Modic e-bog (gratis)" data-en="Download Modic e-book (free)">Download Modic e-bog (gratis)</a>
+      <a href="#publications" onclick="setTimeout(()=>showTab('modic',document.querySelectorAll('.pub-tab')[2]),100);" class="btn-modic-outline" data-dk="Vigtige Modic artikler" data-en="Important Modic articles">Vigtige Modic artikler</a>
     </div>
   </div>
 </section>
@@ -463,7 +460,7 @@
         <div class="rc-num">02</div>
         <h3 data-dk="Aktiv Rygrehabilitering" data-en="Active Spinal Rehabilitation">Aktiv Rygrehabilitering</h3>
         <p data-dk="The Lancet-studiet (1988) var et af de første RCT'er der beviste intensiv muskeltrænigs overlegenhed over sengelejet — et globalt paradigmeskift. Dr.Med.-afhandlingen Assessment and exercise in low Back Pain (1995) er svendeprøven inden for dette felt." data-en="The Lancet study (1988) was one of the first RCTs proving intensive muscle training superior to bed rest — a global paradigm shift. The doctoral thesis Assessment and exercise in low Back Pain (1995) is the landmark work in this field.">The Lancet-studiet (1988) var et af de første RCT'er der beviste intensiv muskeltrænigs overlegenhed over sengelejet — et globalt paradigmeskift. Dr.Med.-afhandlingen <em>Assessment and exercise in low Back Pain</em> (1995) er svendeprøven inden for dette felt.</p>
-        <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" style="display:inline-block;margin-top:12px;font-size:.76rem;color:var(--gold);letter-spacing:.06em;border-bottom:1px solid rgba(184,151,58,.3);padding-bottom:1px;text-decoration:none;" data-dk="Download monografi (ResearchGate) →" data-en="Download monograph (ResearchGate) →">Download monografi (ResearchGate) →</a>
+        <a href="#publications" onclick="setTimeout(()=>showTab('books',document.querySelector('.pub-tab')),100);" style="display:inline-block;margin-top:12px;font-size:.76rem;color:var(--gold);letter-spacing:.06em;border-bottom:1px solid rgba(184,151,58,.3);padding-bottom:1px;text-decoration:none;" data-dk="Se monografier →" data-en="View monographs →">Se monografier →</a>
       </div>
       <div class="research-card">
         <div class="rc-num">03</div>
@@ -592,7 +589,7 @@
 
     <div class="pub-panel" id="tab-modic">
       <div class="pub-list">
-        <div class="pub-item"><div class="pub-year">2008</div><div class="pub-content"><h4>Modic changes, possible causes and relation to low back pain</h4><p class="pub-meta">Albert HB, Kjaer P, Jensen TS, Sorensen JS, Bendix T, Manniche C · <em>Medical Hypotheses</em> 2008;70(2):361–368 <span class="tag tag-red">Landmark hypotese</span><br><a href="https://doi.org/10.1016/j.mehy.2007.05.014" target="_blank" style="color:var(--gold);font-size:.79rem;">doi:10.1016/j.mehy.2007.05.014 →</a></p></div></div>
+        <div class="pub-item"><div class="pub-year">2026</div><div class="pub-content"><h4>Intradiscal linezolid (PP353) treatment for chronic low back pain associated with Modic change type 1: an international, first-in-human, randomised, sham procedure-controlled, double-blind, phase 1b clinical trial</h4><p class="pub-meta">Lassen MR, Scarborough M, Gilchrist N, Tripathi SS, Price C, Horcajadas A, DeAndres J, Baranidharan G, Ahuja S, Otte KS, Wood E, Guest S, Czaplewski LG, McHale D, on behalf of The Modic Trial (TMT) group · <em>eClinicalMedicine (The Lancet)</em> 2026;103764 <span class="tag tag-red">Landmark</span> <span class="tag tag-gold">Open Access</span><br><a href="https://doi.org/10.1016/j.eclinm.2026.103764" target="_blank" style="color:var(--gold);font-size:.79rem;">Download fra The Lancet (eClinicalMedicine) →</a></p></div></div><div class="pub-content"><h4>Modic changes, possible causes and relation to low back pain</h4><p class="pub-meta">Albert HB, Kjaer P, Jensen TS, Sorensen JS, Bendix T, Manniche C · <em>Medical Hypotheses</em> 2008;70(2):361–368 <span class="tag tag-red">Landmark hypotese</span><br><a href="https://doi.org/10.1016/j.mehy.2007.05.014" target="_blank" style="color:var(--gold);font-size:.79rem;">doi:10.1016/j.mehy.2007.05.014 →</a></p></div></div>
         <div class="pub-item"><div class="pub-year">2007</div><div class="pub-content"><h4>Modic changes following lumbar disc herniation</h4><p class="pub-meta">Albert HB, Manniche C · <em>Eur Spine J</em> 2007;16:977–82 <span class="tag tag-gold">Open Access</span></p></div></div>
         <div class="pub-item"><div class="pub-year">2008</div><div class="pub-content"><h4>Antibiotic treatment in patients with low back pain associated with Modic changes type 1: a pilot study</h4><p class="pub-meta">Albert HB, Manniche C, Sorensen JS, Deleuran BW · <em>Br J Sports Med</em> 2008;42:969–73</p></div></div>
         <div class="pub-item"><div class="pub-year">2013</div><div class="pub-content"><h4>Antibiotic treatment in patients with chronic low back pain and Modic type 1 changes: a double-blind RCT</h4><p class="pub-meta">Albert HB, Sorensen JS, Christensen BS, Manniche C · <em>Eur Spine J</em> 2013;22:697–707 <span class="tag tag-gold">Open Access</span> <span class="tag tag-red">Landmark</span></p></div></div>

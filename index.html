@@ -192,10 +192,11 @@
 
     /* MODIC BOOKS GRID */
     .modic-books{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px;}
-    .modic-book-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:20px 16px;text-align:center;transition:border-color .2s;}
+    .modic-book-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:16px 16px 20px;text-align:center;transition:border-color .2s;display:flex;flex-direction:column;align-items:center;}
     .modic-book-card:hover{border-color:rgba(200,80,80,.4);}
+    .modic-book-cover{width:100%;max-width:130px;aspect-ratio:2/3;object-fit:cover;object-position:top;border-radius:2px;box-shadow:0 6px 20px rgba(0,0,0,.5);margin-bottom:14px;display:block;}
     .modic-book-lang{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#e87777;margin-bottom:8px;}
-    .modic-book-title{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:#fff;line-height:1.4;margin-bottom:10px;}
+    .modic-book-title{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:#fff;line-height:1.4;margin-bottom:10px;flex:1;}
     .modic-book-link{font-size:.75rem;color:var(--gold-light);text-decoration:none;letter-spacing:.06em;border-bottom:1px solid rgba(212,176,90,.3);padding-bottom:1px;}
     .modic-book-link:hover{border-bottom-color:var(--gold-light);}
     /* ASSESSMENT BOOK */
@@ -518,21 +519,25 @@
       <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--navy);margin:32px 0 16px;font-weight:600;" data-dk="Back Pain and Modic — gratis e-bog på fire sprog" data-en="Back Pain and Modic — free e-book in four languages">Back Pain and Modic — gratis e-bog på fire sprog</p>
       <div class="modic-books">
         <div class="modic-book-card">
+          <img src="book_en.jpg" alt="Back Pain and Modic" class="modic-book-cover"/>
           <div class="modic-book-lang">🇬🇧 English</div>
           <div class="modic-book-title">Back Pain and Modic: On the threshold of the most significant development in the diagnosis and treatment of back pain in decades</div>
           <a href="https://www.researchgate.net/publication/304626769_Back_Pain_and_Modic" target="_blank" class="modic-book-link">Download (ResearchGate)</a>
         </div>
         <div class="modic-book-card">
+          <img src="book_dk.jpg" alt="Rygsmerter og Modic" class="modic-book-cover"/>
           <div class="modic-book-lang">🇩🇰 Dansk</div>
           <div class="modic-book-title">Rygsmerter og Modic: På tærsklen til det vigtigste gennembrud i diagnostik og behandling af rygsmerter i årtier</div>
           <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" class="modic-book-link">Download (ResearchGate)</a>
         </div>
         <div class="modic-book-card">
+          <img src="book_fr.jpg" alt="Dorsalgie et discopathie de type Modic" class="modic-book-cover"/>
           <div class="modic-book-lang">🇫🇷 Français</div>
-          <div class="modic-book-title">Dorsalgie et discophatie de type Modic: Au seuil du développement le plus significatif dans le diagnostic et le traitement de la dorsalgie</div>
+          <div class="modic-book-title">Dorsalgie et discopathie de type Modic: Au seuil du développement le plus significatif dans le diagnostic et le traitement de la dorsalgie</div>
           <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" class="modic-book-link">Download (ResearchGate)</a>
         </div>
         <div class="modic-book-card">
+          <img src="book_de.jpg" alt="Rückenschmerzen und Modic" class="modic-book-cover"/>
           <div class="modic-book-lang">🇩🇪 Deutsch</div>
           <div class="modic-book-title">Rückenschmerzen und Modic: An der Schwelle zur bedeutendsten Entwicklung in Diagnose und Behandlung von Rückenschmerzen</div>
           <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" class="modic-book-link">Download (ResearchGate)</a>
@@ -540,10 +545,18 @@
       </div>
 
       <div class="pub-list">
-        <div class="pub-item"><div class="pub-year">1999</div><div class="pub-content"><h4>Ondt i ryggen: Forekomst, behandling og forebyggelse i et MTV-perspektiv</h4><p class="pub-meta">Manniche C (red.) et al. · MTV Serie B, nr. 1 · Sundhedsstyrelsen / DICE</p></div></div>
+        <div class="pub-item"><div class="pub-year">1999</div><div class="pub-content">
+          <div style="display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:start;">
+            <img src="mtv1999.jpg" alt="Ondt i ryggen — MTV 1999" style="width:70px;border-radius:2px;box-shadow:0 3px 10px rgba(0,0,0,.15);"/>
+            <div>
+              <h4>Ondt i ryggen: Forekomst, behandling og forebyggelse i et MTV-perspektiv</h4>
+              <p class="pub-meta">Manniche C (red.) et al. · MTV Serie B, nr. 1 · Sundhedsstyrelsen / DICE · <a href="https://www.sst.dk/media/4e0jjdun/ondtiryggen98-d-pdf.pdf" target="_blank" style="color:var(--gold);font-size:.8rem;">Download fra SST →</a></p>
+            </div>
+          </div>
+        </div></div>
         <div class="pub-item"><div class="pub-year">1996</div><div class="pub-content">
           <div style="display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:start;">
-            <img src="rygsmerter.jpg" alt="Rygsmerter. Myter og Kendsgerninger" style="width:70px;border-radius:2px;box-shadow:0 3px 10px rgba(0,0,0,.15);"/>
+            <img src="rygsmerter_ny.jpg" alt="Rygsmerter. Myter og Kendsgerninger" style="width:70px;border-radius:2px;box-shadow:0 3px 10px rgba(0,0,0,.15);"/>
             <div>
               <h4>Rygsmerter. Myter og Kendsgerninger</h4>
               <p class="pub-meta">Manniche C, Jordan A, Mehlsen J · Gyldendals Lægebøger, København · <a href="https://www.researchgate.net/profile/Claus-Manniche" target="_blank" style="color:var(--gold);font-size:.8rem;">Download fra ResearchGate →</a></p>
@@ -633,7 +646,7 @@
         <div class="badge-tag" data-dk="Medstifter · 2013" data-en="Co-founder · 2013">Medstifter · 2013</div>
         <h3>Persica Pharmaceuticals Ltd.</h3>
         <p data-dk="Udvikler PP353 — intradiskal antibiotisk injektion til Modic type 1-relaterede kroniske lændesmerter. Kliniske forsøg 2024–2025." data-en="Developing PP353 — intradiscal antibiotic injection for Modic type 1-related chronic low back pain. Clinical trials 2024–2025.">Udvikler PP353 — intradiskal antibiotisk injektion til Modic type 1-relaterede kroniske lændesmerter. Kliniske forsøg 2024–2025.</p>
-        <a href="https://www.persicapharma.com" target="_blank" style="display:inline-block;margin-top:16px;font-size:.76rem;color:var(--gold-light);letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid rgba(212,176,90,.3);padding-bottom:2px;text-decoration:none;" data-dk="Besøg Persica Pharmaceuticals →" data-en="Visit Persica Pharmaceuticals →">Besøg Persica Pharmaceuticals →</a>
+        <a href="https://www.linkedin.com/company/persica-pharmaceuticals-limited" target="_blank" style="display:inline-block;margin-top:16px;font-size:.76rem;color:var(--gold-light);letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid rgba(212,176,90,.3);padding-bottom:2px;text-decoration:none;" data-dk="Besøg Persica på LinkedIn →" data-en="Visit Persica on LinkedIn →">Besøg Persica på LinkedIn →</a>
       </div>
     </div>
   </div>

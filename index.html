@@ -219,34 +219,35 @@
     /* MOBILE PORTRAIT BADGE */
     .hero-mobile-portrait{display:none;}
     @media(max-width:900px){
-      nav{padding:0 20px;}.nav-links{gap:12px;}.nav-links a{font-size:.68rem;}
+      nav{padding:0 16px;}.nav-links{gap:9px;}.nav-links a{font-size:.64rem;}
+      /* Mindre logo så nav passer på én linje */
+      .nav-logo{font-size:.85rem;letter-spacing:.02em;}
       #hero{grid-template-columns:1fr;min-height:auto;}
       .hero-portrait{display:none;}
       .hero-text{padding:48px 24px 52px;}
 
-      /* Mobile hero graphic: diagonal gold accent + portrait badge */
+      /* Mobile hero: guldstreg i bunden */
       #hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold-light) 50%,transparent 100%);}
       .hero-mobile-portrait{
-        display:flex;align-items:center;gap:14px;
-        margin-bottom:28px;
-        padding:14px 18px;
-        background:rgba(255,255,255,.06);
-        border:1px solid rgba(184,151,58,.2);
-        border-left:3px solid var(--gold);
-        border-radius:2px;
-        backdrop-filter:blur(4px);
+        display:flex;flex-direction:column;align-items:center;
+        margin-bottom:32px;
       }
       .hero-mobile-portrait img{
-        width:62px;height:62px;
+        width:100px;height:100px;
         border-radius:50%;
         object-fit:cover;object-position:center top;
         border:2px solid var(--gold);
-        box-shadow:0 4px 16px rgba(0,0,0,.4);
-        flex-shrink:0;
+        box-shadow:0 6px 24px rgba(0,0,0,.5);
+        transform:scaleX(-1);
       }
-      .hero-mobile-portrait-text{display:flex;flex-direction:column;gap:2px;}
-      .hero-mobile-portrait-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:#fff;line-height:1.2;}
-      .hero-mobile-portrait-caption{font-size:.72rem;font-style:italic;color:rgba(255,255,255,.38);line-height:1.4;}
+      .hero-mobile-portrait-caption{
+        margin-top:7px;
+        font-size:.62rem;
+        font-style:italic;
+        color:rgba(255,255,255,.3);
+        letter-spacing:.04em;
+        text-align:center;
+      }
 
       /* Decorative geometric accent on mobile hero */
       .hero-text::before{
@@ -300,10 +301,7 @@
     <!-- Mobile-only portrait badge -->
     <div class="hero-mobile-portrait">
       <img src="foto.jpg" alt="Claus Manniche"/>
-      <div class="hero-mobile-portrait-text">
-        <div class="hero-mobile-portrait-name">Claus Manniche</div>
-        <div class="hero-mobile-portrait-caption">Olie på lærred · Ellen Wolf</div>
-      </div>
+      <div class="hero-mobile-portrait-caption">Olie på lærred · Ellen Wolf</div>
     </div>
     <p class="hero-eyebrow" data-dk="Læge · Dr.Med. · Cand.Jur. · Speciallæge i Reumatologi" data-en="MD · Dr.Med. · Specialist in Rheumatology">Læge · Dr.Med. · Cand.Jur. · Speciallæge i Reumatologi</p>
     <h1 class="hero-name">Claus<br>Manniche</h1>

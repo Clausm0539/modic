@@ -216,9 +216,46 @@
 
     /* RESPONSIVE */
     @media(max-width:1024px){.awards-grid{grid-template-columns:repeat(3,1fr);}.links-grid{grid-template-columns:repeat(3,1fr);}}
+    /* MOBILE PORTRAIT BADGE */
+    .hero-mobile-portrait{display:none;}
     @media(max-width:900px){
       nav{padding:0 20px;}.nav-links{gap:12px;}.nav-links a{font-size:.68rem;}
-      #hero{grid-template-columns:1fr;}.hero-portrait{display:none;}.hero-text{padding:56px 24px 48px;}
+      #hero{grid-template-columns:1fr;min-height:auto;}
+      .hero-portrait{display:none;}
+      .hero-text{padding:48px 24px 52px;}
+
+      /* Mobile hero graphic: diagonal gold accent + portrait badge */
+      #hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold-light) 50%,transparent 100%);}
+      .hero-mobile-portrait{
+        display:flex;align-items:center;gap:14px;
+        margin-bottom:28px;
+        padding:14px 18px;
+        background:rgba(255,255,255,.06);
+        border:1px solid rgba(184,151,58,.2);
+        border-left:3px solid var(--gold);
+        border-radius:2px;
+        backdrop-filter:blur(4px);
+      }
+      .hero-mobile-portrait img{
+        width:62px;height:62px;
+        border-radius:50%;
+        object-fit:cover;object-position:center top;
+        border:2px solid var(--gold);
+        box-shadow:0 4px 16px rgba(0,0,0,.4);
+        flex-shrink:0;
+      }
+      .hero-mobile-portrait-text{display:flex;flex-direction:column;gap:2px;}
+      .hero-mobile-portrait-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:#fff;line-height:1.2;}
+      .hero-mobile-portrait-caption{font-size:.72rem;font-style:italic;color:rgba(255,255,255,.38);line-height:1.4;}
+
+      /* Decorative geometric accent on mobile hero */
+      .hero-text::before{
+        content:'';
+        position:absolute;top:0;right:0;
+        width:120px;height:120px;
+        background:radial-gradient(ellipse at top right, rgba(184,151,58,.12) 0%, transparent 70%);
+        pointer-events:none;
+      }
       section,#modic-section{padding:60px 24px;}hr.rule{margin:0 24px;}
       .about-grid,.persica-grid{grid-template-columns:1fr;}
       .modic-grid,.research-grid{grid-template-columns:1fr;}
@@ -260,6 +297,14 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-text">
+    <!-- Mobile-only portrait badge -->
+    <div class="hero-mobile-portrait">
+      <img src="foto.jpg" alt="Claus Manniche"/>
+      <div class="hero-mobile-portrait-text">
+        <div class="hero-mobile-portrait-name">Claus Manniche</div>
+        <div class="hero-mobile-portrait-caption">Olie på lærred · Ellen Wolf</div>
+      </div>
+    </div>
     <p class="hero-eyebrow" data-dk="Læge · Dr.Med. · Cand.Jur. · Speciallæge i Reumatologi" data-en="MD · Dr.Med. · Specialist in Rheumatology">Læge · Dr.Med. · Cand.Jur. · Speciallæge i Reumatologi</p>
     <h1 class="hero-name">Claus<br>Manniche</h1>
     <p class="hero-title" data-dk="Rygforsker & Gæsteforsker · Syddansk Universitet" data-en="Spine Researcher & Visiting Researcher · University of Southern Denmark">Rygforsker &amp; Gæsteforsker · Syddansk Universitet</p>
@@ -420,9 +465,10 @@
     <p class="section-tag" style="margin-bottom:20px;" data-dk="Seneste nyt om Modic" data-en="Latest Modic news">Seneste nyt om Modic</p>
     <div class="modic-news">
       <div class="news-card">
-        <div class="news-date">2025</div>
-        <div class="news-title" data-dk="Persica PP353 — kliniske forsøg" data-en="Persica PP353 — clinical trials">Persica PP353 — kliniske forsøg</div>
-        <div class="news-body" data-dk="Persica Pharmaceuticals fremskriver kliniske fase-forsøg med PP353, en intradiskal antibiotisk injektion til patienter med Modic type 1 og kroniske lændesmerter. Resultater afventes." data-en="Persica Pharmaceuticals is advancing clinical phase trials of PP353, an intradiscal antibiotic injection for patients with Modic type 1 and chronic low back pain. Results are awaited.">Persica Pharmaceuticals fremskriver kliniske fase-forsøg med PP353, en intradiskal antibiotisk injektion til patienter med Modic type 1 og kroniske lændesmerter. Resultater afventes.</div>
+        <div class="news-date">2026</div>
+        <div class="news-title" data-dk="Persica PP353 — overbevisende Lancet-resultater" data-en="Persica PP353 — compelling Lancet results">Persica PP353 — overbevisende Lancet-resultater</div>
+        <div class="news-body" data-dk="Overbevisende resultater fra det internationale fase 1b-forsøg med PP353 (intradiskal linezolid) er nu offentliggjort i <em>eClinicalMedicine (The Lancet)</em> 2026. " data-en="Compelling results from the international phase 1b trial of PP353 (intradiscal linezolid) have now been published in <em>eClinicalMedicine (The Lancet)</em> 2026. ">Overbevisende resultater fra det internationale fase 1b-forsøg med PP353 (intradiskal linezolid) er nu offentliggjort i <em>eClinicalMedicine (The Lancet)</em> 2026. </div>
+        <a href="#publications" onclick="setTimeout(()=>{document.getElementById('publications').scrollIntoView();showTab('modic',document.querySelectorAll('.pub-tab')[2]);},100);" style="display:inline-block;margin-top:10px;font-size:.76rem;color:var(--gold-light);letter-spacing:.06em;border-bottom:1px solid rgba(212,176,90,.3);padding-bottom:1px;text-decoration:none;" data-dk="Læs artiklen under Publikationer →" data-en="Read the article under Publications →">Læs artiklen under Publikationer →</a>
       </div>
       <div class="news-card">
         <div class="news-date">2019</div>
@@ -634,12 +680,12 @@
     <div class="persica-grid">
       <div class="persica-text">
         <p data-dk="I 2013 medstiftede Claus Manniche Persica Pharmaceuticals Ltd. — et klinisk farmaceutisk selskab med rod i årtiers forskning i Modic-forandringer og diskusinfektioner. Selskabet udvikler PP353, en ny patenteret intradiskal antibiotisk injektion målrettet patienter med kroniske lændesmerter og Modic type 1-endepladeforandringer." data-en="In 2013, Claus Manniche co-founded Persica Pharmaceuticals Ltd. — a clinical pharmaceutical company rooted in decades of research into Modic changes and disc infections. The company is developing PP353, a novel patented intradiscal antibiotic injection targeting patients with chronic low back pain and Modic type 1 endplate changes.">I 2013 medstiftede Claus Manniche Persica Pharmaceuticals Ltd. — et klinisk farmaceutisk selskab med rod i årtiers forskning i Modic-forandringer og diskusinfektioner. Selskabet udvikler PP353, en ny patenteret intradiskal antibiotisk injektion målrettet patienter med kroniske lændesmerter og Modic type 1-endepladeforandringer.</p>
-        <p data-dk="Etableringen af Persica er et direkte resultat af det landmark-RCT fra 2013, der dokumenterede effekten af oral langtidsantibiotikabehandling. Kliniske forsøg med PP353 fremskrives 2024–2025." data-en="The founding of Persica is a direct result of the landmark 2013 RCT documenting the effect of oral long-term antibiotic treatment. Clinical trials of PP353 are advancing in 2024–2025.">Etableringen af Persica er et direkte resultat af det landmark-RCT fra 2013, der dokumenterede effekten af oral langtidsantibiotikabehandling. Kliniske forsøg med PP353 fremskrives 2024–2025.</p>
+        <p data-dk="Etableringen af Persica er et direkte resultat af det landmark-RCT fra 2013, der dokumenterede effekten af oral langtidsantibiotikabehandling. Fase 1b-forsøgets overbevisende resultater er i 2026 publiceret i <em>eClinicalMedicine (The Lancet)</em>." data-en="The founding of Persica is a direct result of the landmark 2013 RCT documenting the effect of oral long-term antibiotic treatment. The compelling phase 1b results were published in <em>eClinicalMedicine (The Lancet)</em> in 2026.">Etableringen af Persica er et direkte resultat af det landmark-RCT fra 2013, der dokumenterede effekten af oral langtidsantibiotikabehandling. Fase 1b-forsøgets overbevisende resultater er i 2026 publiceret i <em>eClinicalMedicine (The Lancet)</em>.</p>
       </div>
       <div class="persica-badge">
         <div class="badge-tag" data-dk="Medstifter · 2013" data-en="Co-founder · 2013">Medstifter · 2013</div>
         <h3>Persica Pharmaceuticals Ltd.</h3>
-        <p data-dk="Udvikler PP353 — intradiskal antibiotisk injektion til Modic type 1-relaterede kroniske lændesmerter. Kliniske forsøg 2024–2025." data-en="Developing PP353 — intradiscal antibiotic injection for Modic type 1-related chronic low back pain. Clinical trials 2024–2025.">Udvikler PP353 — intradiskal antibiotisk injektion til Modic type 1-relaterede kroniske lændesmerter. Kliniske forsøg 2024–2025.</p>
+        <p data-dk="Udvikler PP353 — intradiskal antibiotisk injektion til Modic type 1-relaterede kroniske lændesmerter. Fase 1b-resultater publiceret i The Lancet 2026." data-en="Developing PP353 — intradiscal antibiotic injection for Modic type 1-related chronic low back pain. Phase 1b results published in The Lancet 2026.">Udvikler PP353 — intradiskal antibiotisk injektion til Modic type 1-relaterede kroniske lændesmerter. Fase 1b-resultater publiceret i The Lancet 2026.</p>
         <a href="https://www.linkedin.com/company/persica-pharmaceuticals-limited" target="_blank" style="display:inline-block;margin-top:16px;font-size:.76rem;color:var(--gold-light);letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid rgba(212,176,90,.3);padding-bottom:2px;text-decoration:none;" data-dk="Besøg Persica på LinkedIn →" data-en="Visit Persica on LinkedIn →">Besøg Persica på LinkedIn →</a>
       </div>
     </div>

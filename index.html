@@ -24,10 +24,12 @@
 
   <!-- Structured Data (Schema.org) -->
   <script type="application/ld+json">
+  [
   {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": ["Person", "Physician"],
     "name": "Claus Manniche",
+    "alternateName": ["C. Manniche", "Manniche C"],
     "url": "https://www.clausmanniche.com",
     "image": "https://www.clausmanniche.com/portrait.jpg",
     "jobTitle": "Gæsteprofessor og seniorforsker / Visiting Professor and Senior Researcher",
@@ -49,7 +51,19 @@
       "https://www.researchgate.net/profile/Claus-Manniche",
       "https://www.persicapharma.com"
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Claus Manniche",
+    "url": "https://www.clausmanniche.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.clausmanniche.com/#{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   }
+  ]
   </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>

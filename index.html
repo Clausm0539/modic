@@ -260,6 +260,20 @@
     /* SPINE WATERMARK */
     .spine-watermark{position:absolute;right:-20px;bottom:-20px;width:180px;opacity:.06;pointer-events:none;}
     @media(max-width:900px){.modic-books{grid-template-columns:repeat(2,1fr);}.assessment-block{grid-template-columns:1fr;}}
+    /* FAQ */
+    #faq{background:var(--cream);}
+    .faq-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border);}
+    .faq-item{border-bottom:1px solid var(--border);}
+    .faq-question{width:100%;background:none;border:none;text-align:left;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+    .faq-question-text{font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-weight:600;color:var(--navy);line-height:1.35;}
+    .faq-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;transition:background .2s;}
+    .faq-icon svg{width:10px;height:10px;fill:var(--gold);transition:transform .25s;}
+    .faq-item.open .faq-icon{background:var(--gold);}
+    .faq-item.open .faq-icon svg{fill:var(--navy);transform:rotate(45deg);}
+    .faq-answer{display:none;padding:0 0 22px 0;font-size:.91rem;color:#444;line-height:1.9;max-width:780px;}
+    .faq-item.open .faq-answer{display:block;}
+    @media(max-width:900px){.faq-question-text{font-size:1rem;}}
+
     /* ANIMATIONS */
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
     .hero-text>*{animation:fadeUp .65s ease both;}
@@ -334,6 +348,7 @@
     <li><a href="#research" data-dk="Forskning" data-en="Research">Forskning</a></li>
     <li><a href="#publications" data-dk="Publikationer" data-en="Publications">Publikationer</a></li>
     <li><a href="#awards" data-dk="Hæder" data-en="Awards">Hæder</a></li>
+    <li><a href="#faq" data-dk="Spørgsmål" data-en="FAQ">Spørgsmål</a></li>
     <li><a href="#links" data-dk="Profiler" data-en="Profiles">Profiler</a></li>
     <li>
       <div class="lang-toggle">
@@ -755,6 +770,73 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <p class="section-tag" data-dk="Patientinformation" data-en="Patient information">Patientinformation</p>
+    <h2 class="section-title" data-dk="Spørgsmål om Modic-forandringer & behandling" data-en="Questions about Modic changes & treatment">Spørgsmål om Modic-forandringer &amp; behandling</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text" data-dk="Hvad er Modic-forandringer?" data-en="What are Modic changes?">Hvad er Modic-forandringer?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 1v8M1 5h8"/></svg></span>
+        </button>
+        <div class="faq-answer" data-dk="Modic-forandringer er MRI-synlige forandringer i knoglemarven i ryghvirvlerne, opstået i tilknytning til de bruskskiver der adskiller hvirvlerne. De opdeles i tre typer: type 1 (aktiv betændelse/ødem), type 2 (fedtdegeneration) og type 3 (knoglesklerose). Modic type 1-forandringer er særligt forbundet med kroniske lændesmerter og anses for at kunne skyldes lavvirulente bakterieinfektioner i diskus." data-en="Modic changes are MRI-visible changes in the bone marrow of vertebral bodies, occurring adjacent to the intervertebral discs. They are classified into three types: type 1 (active inflammation/oedema), type 2 (fatty degeneration) and type 3 (bone sclerosis). Modic type 1 changes are particularly associated with chronic low back pain and are thought to be caused in part by low-grade bacterial infections of the disc.">Modic-forandringer er MRI-synlige forandringer i knoglemarven i ryghvirvlerne, opstået i tilknytning til de bruskskiver der adskiller hvirvlerne. De opdeles i tre typer: type 1 (aktiv betændelse/ødem), type 2 (fedtdegeneration) og type 3 (knoglesklerose). Modic type 1-forandringer er særligt forbundet med kroniske lændesmerter og anses for at kunne skyldes lavvirulente bakterieinfektioner i diskus.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text" data-dk="Hvad er symptomerne på Modic-forandringer?" data-en="What are the symptoms of Modic changes?">Hvad er symptomerne på Modic-forandringer?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 1v8M1 5h8"/></svg></span>
+        </button>
+        <div class="faq-answer" data-dk="Det karakteristiske symptom er vedvarende, ofte invaliderende lændesmerter — særligt morgenstivhed der bedres ved bevægelse. Smerterne stråler typisk ikke ned i benene (hvilket adskiller tilstanden fra diskusprolaps med ischias). Mange patienter har haft smerterne i årevis uden klar diagnose. Modic type 1 giver ofte de mest udtalte smerter og er den type der svarer bedst på antibiotikabehandling." data-en="The hallmark symptom is persistent, often disabling low back pain — particularly morning stiffness that improves with movement. Pain does not typically radiate into the legs (distinguishing it from disc prolapse with sciatica). Many patients have suffered for years without a clear diagnosis. Modic type 1 tends to cause the most pronounced symptoms and is the type that responds best to antibiotic treatment.">Det karakteristiske symptom er vedvarende, ofte invaliderende lændesmerter — særligt morgenstivhed der bedres ved bevægelse. Smerterne stråler typisk ikke ned i benene (hvilket adskiller tilstanden fra diskusprolaps med ischias). Mange patienter har haft smerterne i årevis uden klar diagnose. Modic type 1 giver ofte de mest udtalte smerter og er den type der svarer bedst på antibiotikabehandling.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text" data-dk="Hvordan diagnosticeres Modic-forandringer?" data-en="How are Modic changes diagnosed?">Hvordan diagnosticeres Modic-forandringer?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 1v8M1 5h8"/></svg></span>
+        </button>
+        <div class="faq-answer" data-dk="Diagnosen stilles udelukkende ved MR-scanning (MRI) af lænderyggen. På MR-billederne ses karakteristiske signalforandringer i knoglemarven ved endepladerne. Modic type 1 ses som lavt signal på T1-vægtede og højt signal på T2-vægtede billeder. Det er vigtigt at MR-billederne tolkes af en læge der er bekendt med Modic-forandringer, da fundet kan overses eller fejltolkes." data-en="Diagnosis is made exclusively by MRI of the lumbar spine. On MR images, characteristic signal changes are visible in the bone marrow at the endplates. Modic type 1 shows low signal on T1-weighted and high signal on T2-weighted images. It is important that MR images are interpreted by a physician familiar with Modic changes, as the finding can be missed or misinterpreted.">Diagnosen stilles udelukkende ved MR-scanning (MRI) af lænderyggen. På MR-billederne ses karakteristiske signalforandringer i knoglemarven ved endepladerne. Modic type 1 ses som lavt signal på T1-vægtede og højt signal på T2-vægtede billeder. Det er vigtigt at MR-billederne tolkes af en læge der er bekendt med Modic-forandringer, da fundet kan overses eller fejltolkes.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text" data-dk="Kan Modic-forandringer behandles med antibiotika?" data-en="Can Modic changes be treated with antibiotics?">Kan Modic-forandringer behandles med antibiotika?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 1v8M1 5h8"/></svg></span>
+        </button>
+        <div class="faq-answer" data-dk="Ja — forskning fra Claus Manniches gruppe og samarbejdspartnere har vist, at en del patienter med Modic type 1-forandringer og kroniske lændesmerter har en lavvirulent bakterieinfektion i diskus. Et randomiseret, dobbeltblindet forsøg publiceret i European Spine Journal i 2013 viste signifikant og vedvarende smertelindring efter 100 dages behandling med amoxicillin-clavulanat. Denne behandling er ikke standardbehandling i Danmark, men anvendes på specialiserede centre." data-en="Yes — research from Claus Manniche's group and collaborators has shown that a proportion of patients with Modic type 1 changes and chronic low back pain harbour a low-grade bacterial infection in the disc. A randomised, double-blind trial published in the European Spine Journal in 2013 demonstrated significant and sustained pain relief after 100 days of amoxicillin-clavulanate treatment. This treatment is not standard care in Denmark but is used at specialised centres.">Ja — forskning fra Claus Manniches gruppe og samarbejdspartnere har vist, at en del patienter med Modic type 1-forandringer og kroniske lændesmerter har en lavvirulent bakterieinfektion i diskus. Et randomiseret, dobbeltblindet forsøg publiceret i European Spine Journal i 2013 viste signifikant og vedvarende smertelindring efter 100 dages behandling med amoxicillin-clavulanat. Denne behandling er ikke standardbehandling i Danmark, men anvendes på specialiserede centre.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text" data-dk="Hvad er PP353 og Persica Pharmaceuticals?" data-en="What is PP353 and Persica Pharmaceuticals?">Hvad er PP353 og Persica Pharmaceuticals?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 1v8M1 5h8"/></svg></span>
+        </button>
+        <div class="faq-answer" data-dk="PP353 er en ny intradiskal antibiotisk injektion (linezolid) udviklet af Persica Pharmaceuticals Ltd., som Claus Manniche medstiftede i 2013. Behandlingen gives direkte i den inficerede diskus og er målrettet patienter med kroniske lændesmerter og Modic type 1-forandringer. Fase 1b-forsøgsresultaterne er i 2026 publiceret i eClinicalMedicine (The Lancet) og viste lovende resultater med hensyn til sikkerhed og effekt." data-en="PP353 is a novel intradiscal antibiotic injection (linezolid) developed by Persica Pharmaceuticals Ltd., which Claus Manniche co-founded in 2013. The treatment is administered directly into the infected disc and targets patients with chronic low back pain and Modic type 1 changes. Phase 1b trial results published in eClinicalMedicine (The Lancet) in 2026 showed promising findings regarding safety and efficacy.">PP353 er en ny intradiskal antibiotisk injektion (linezolid) udviklet af Persica Pharmaceuticals Ltd., som Claus Manniche medstiftede i 2013. Behandlingen gives direkte i den inficerede diskus og er målrettet patienter med kroniske lændesmerter og Modic type 1-forandringer. Fase 1b-forsøgsresultaterne er i 2026 publiceret i eClinicalMedicine (The Lancet) og viste lovende resultater med hensyn til sikkerhed og effekt.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text" data-dk="Hvem får Modic-forandringer — og hvor hyppigt?" data-en="Who gets Modic changes — and how common are they?">Hvem får Modic-forandringer — og hvor hyppigt?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 1v8M1 5h8"/></svg></span>
+        </button>
+        <div class="faq-answer" data-dk="Modic-forandringer påvises ved MR-scanning hos ca. 40% af patienter med kroniske lændesmerter, men kun hos ca. 6% af raske individer. De er altså stærkt overrepræsenteret hos rygsmerter-patienter. Tilstanden ses hyppigere hos midaldrende og ældre, og noget oftere hos mænd end kvinder. En forudgående diskusprolaps øger risikoen for at udvikle Modic type 1-forandringer markant." data-en="Modic changes are found on MRI in approximately 40% of patients with chronic low back pain, but in only about 6% of healthy individuals. They are therefore strongly overrepresented in back pain patients. The condition is more common in middle-aged and older adults and somewhat more frequent in men than women. A prior disc herniation significantly increases the risk of developing Modic type 1 changes.">Modic-forandringer påvises ved MR-scanning hos ca. 40% af patienter med kroniske lændesmerter, men kun hos ca. 6% af raske individer. De er altså stærkt overrepræsenteret hos rygsmerter-patienter. Tilstanden ses hyppigere hos midaldrende og ældre, og noget oftere hos mænd end kvinder. En forudgående diskusprolaps øger risikoen for at udvikle Modic type 1-forandringer markant.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-question-text" data-dk="Kan man henvende sig til Claus Manniche som patient?" data-en="Can patients contact Claus Manniche directly?">Kan man henvende sig til Claus Manniche som patient?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 10"><path d="M5 1v8M1 5h8"/></svg></span>
+        </button>
+        <div class="faq-answer" data-dk="Claus Manniche er aktiv forsker og gæsteprofessor og modtager ikke patienter i klinisk praksis. Patienter der mistænker Modic-forandringer bør kontakte deres praktiserende læge med henblik på MR-scanning og evt. viderehenvisning til rygspecialist. Yderligere information om Modic-forandringer og behandlingsmuligheder findes i bogen <em>Rygsmerter og Modic</em>, som er tilgængelig gratis på dansk, engelsk, fransk, tysk og spansk via ResearchGate." data-en="Claus Manniche is an active researcher and visiting professor and does not see patients in clinical practice. Patients who suspect Modic changes should contact their GP for an MRI scan and possible referral to a spine specialist. Further information about Modic changes and treatment options is available in the book <em>Back Pain and Modic</em>, freely available in Danish, English, French, German and Spanish via ResearchGate.">Claus Manniche er aktiv forsker og gæsteprofessor og modtager ikke patienter i klinisk praksis. Patienter der mistænker Modic-forandringer bør kontakte deres praktiserende læge med henblik på MR-scanning og evt. viderehenvisning til rygspecialist. Yderligere information om Modic-forandringer og behandlingsmuligheder findes i bogen <em>Rygsmerter og Modic</em>, som er tilgængelig gratis på dansk, engelsk, fransk, tysk og spansk via ResearchGate.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- PROFILES -->
 <section id="links">
   <div class="section-inner">
@@ -834,7 +916,14 @@ function showTab(id,btn){
   btn.classList.add('active');
 }
 
-// ── LANGUAGE ──
+// ── FAQ ──
+function toggleFaq(btn){
+  var item=btn.closest('.faq-item');
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!isOpen) item.classList.add('open');
+}
+
 var currentLang='da';
 function setLang(lang){
   currentLang=lang;

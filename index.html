@@ -226,6 +226,34 @@
     .lang-btn:hover{opacity:.85;}
     .flag-svg{width:24px;height:16px;border-radius:2px;display:block;}
 
+    /* HAMBURGER */
+    .nav-right{display:flex;align-items:center;gap:12px;}
+    .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:210;}
+    .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .25s, opacity .25s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    /* MOBILE NAV DROPDOWN */
+    @media(max-width:768px){
+      nav{padding:0 16px;}
+      .nav-logo{font-size:.95rem;letter-spacing:.02em;}
+      .hamburger{display:flex;}
+      .nav-links{
+        display:none;
+        position:fixed;top:64px;left:0;right:0;
+        background:rgba(20,32,60,0.99);
+        flex-direction:column;gap:0;
+        padding:8px 0 16px;
+        box-shadow:0 8px 24px rgba(0,0,0,.4);
+      }
+      .nav-links.open{display:flex;}
+      .nav-links li{width:100%;}
+      .nav-links li:last-child{display:none;} /* hide lang-toggle inside menu — shown in nav-right */
+      .nav-links a{display:block;padding:13px 24px;font-size:.82rem;letter-spacing:.1em;border-bottom:1px solid rgba(255,255,255,.06);}
+      .nav-right .lang-toggle{margin-left:0;}
+    }
+
     /* HERO */
     #hero{min-height:100vh;display:grid;grid-template-columns:1.2fr 0.8fr;padding-top:64px;background:var(--navy);position:relative;overflow:hidden;}
     #hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(184,151,58,.07) 0%,transparent 70%);}
@@ -436,9 +464,6 @@
     /* MOBILE PORTRAIT BADGE */
     .hero-mobile-portrait{display:none;}
     @media(max-width:900px){
-      nav{padding:0 16px;}.nav-links{gap:9px;}.nav-links a{font-size:.64rem;}
-      /* Mindre logo så nav passer på én linje */
-      .nav-logo{font-size:.85rem;letter-spacing:.02em;}
       #hero{grid-template-columns:1fr;min-height:auto;}
       .hero-portrait{display:none;}
       .hero-text{padding:48px 24px 52px;}
@@ -492,14 +517,14 @@
 <!-- NAV -->
 <nav>
   <a href="#hero" style="text-decoration:none;"><div class="nav-logo">Claus <span>Manniche</span></div></a>
-  <ul class="nav-links">
-    <li><a href="#about" data-dk="Om mig" data-en="About">Om mig</a></li>
-    <li><a href="#modic-section" class="modic-nav" data-dk="Modic" data-en="Modic">Modic</a></li>
-    <li><a href="#research" data-dk="Forskning" data-en="Research">Forskning</a></li>
-    <li><a href="#publications" data-dk="Publikationer" data-en="Publications">Publikationer</a></li>
-    <li><a href="#awards" data-dk="Hæder" data-en="Awards">Hæder</a></li>
-    <li><a href="#faq" data-dk="Spørgsmål" data-en="FAQ">Spørgsmål</a></li>
-    <li><a href="#links" data-dk="Profiler" data-en="Profiles">Profiler</a></li>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about" data-dk="Om mig" data-en="About" onclick="closeMenu()">Om mig</a></li>
+    <li><a href="#modic-section" class="modic-nav" data-dk="Modic" data-en="Modic" onclick="closeMenu()">Modic</a></li>
+    <li><a href="#research" data-dk="Forskning" data-en="Research" onclick="closeMenu()">Forskning</a></li>
+    <li><a href="#publications" data-dk="Publikationer" data-en="Publications" onclick="closeMenu()">Publikationer</a></li>
+    <li><a href="#awards" data-dk="Hæder" data-en="Awards" onclick="closeMenu()">Hæder</a></li>
+    <li><a href="#faq" data-dk="Spørgsmål" data-en="FAQ" onclick="closeMenu()">Spørgsmål</a></li>
+    <li><a href="#links" data-dk="Profiler" data-en="Profiles" onclick="closeMenu()">Profiler</a></li>
     <li>
       <div class="lang-toggle">
         <button class="lang-btn active" id="btn-dk" onclick="setLang('da')" title="Dansk">
@@ -511,6 +536,20 @@
       </div>
     </li>
   </ul>
+  <div class="nav-right">
+    <!-- Flags always visible on mobile -->
+    <div class="lang-toggle" id="lang-toggle-mobile" style="display:none;">
+      <button class="lang-btn active" id="btn-dk-m" onclick="setLang('da')" title="Dansk">
+        <svg class="flag-svg" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#C60C30"/><rect x="7" width="3" height="16" fill="white"/><rect y="6" width="24" height="4" fill="white"/><rect x="7" width="3" height="16" fill="#C60C30"/><rect y="6" width="24" height="4" fill="#C60C30"/><rect x="8" width="1" height="16" fill="white"/><rect y="7" width="24" height="2" fill="white"/></svg>
+      </button>
+      <button class="lang-btn" id="btn-en-m" onclick="setLang('en')" title="English">
+        <svg class="flag-svg" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#012169"/><path d="M0,0 L24,16 M24,0 L0,16" stroke="white" stroke-width="3"/><path d="M0,0 L24,16 M24,0 L0,16" stroke="#C8102E" stroke-width="1.5"/><path d="M12,0 V16 M0,8 H24" stroke="white" stroke-width="4"/><path d="M12,0 V16 M0,8 H24" stroke="#C8102E" stroke-width="2.5"/></svg>
+      </button>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1058,6 +1097,26 @@
 </footer>
 
 <script>
+// ── HAMBURGER ──
+function toggleMenu(){
+  var nav=document.getElementById('nav-links');
+  var btn=document.getElementById('hamburger');
+  var isOpen=nav.classList.toggle('open');
+  btn.classList.toggle('open',isOpen);
+}
+function closeMenu(){
+  document.getElementById('nav-links').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+// Show mobile flags only on small screens
+function updateMobileFlags(){
+  var mobile=window.innerWidth<=768;
+  var mf=document.getElementById('lang-toggle-mobile');
+  if(mf) mf.style.display=mobile?'flex':'none';
+}
+window.addEventListener('resize',updateMobileFlags);
+updateMobileFlags();
+
 // ── TABS ──
 function showTab(id,btn){
   document.querySelectorAll('.pub-panel').forEach(p=>p.classList.remove('active'));
@@ -1079,8 +1138,13 @@ function setLang(lang){
   currentLang=lang;
   var root=document.getElementById('html-root');
   root.setAttribute('lang',lang);
-  document.getElementById('btn-dk').classList.toggle('active',lang==='da');
-  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  // Sync all flag buttons (desktop + mobile)
+  ['btn-dk','btn-en','btn-dk-m','btn-en-m'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var isDk=id.indexOf('dk')!==-1;
+    el.classList.toggle('active',(lang==='da'&&isDk)||(lang==='en'&&!isDk));
+  });
   document.getElementById('page-title').textContent=lang==='da'
     ?'Claus Manniche – Læge, Dr.Med. | Rygforsker'
     :'Claus Manniche – MD, Dr.Med. | Spine Researcher & Modic Changes Expert';

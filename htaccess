@@ -1,0 +1,17 @@
+# Redirect old article URLs to new versions
+# Place this .htaccess in your root directory (same level as index.html)
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Redirect old English article URL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^modic-changes\.html$ /modic-artikel-en.html [L,R=301]
+
+# Redirect old Danish article URL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^modic-forandringer\.html$ /modic-artikel-da.html [L,R=301]
+
+</IfModule>
